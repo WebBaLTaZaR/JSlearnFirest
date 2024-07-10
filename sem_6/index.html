@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function helloName(name, surname, age) {
+        return `Привет ${name} ${surname}, с возрастом ${age}`;
+      }
+      console.log(helloName("Сергей", "Грицаев", 26));
+
+      let quad = (number) => number ** 2;
+      console.log(quad(4));
+
+      let checkPol = (number) => (number > 0 ? "+++" : "---");
+      console.log(checkPol(12));
+
+      const sum = (a, b, c) => Number(a) + Number(b) + Number(c);
+      console.log(sum("10", 23, 22));
+
+      function sqrt(number) {
+        return Math.sqrt(number);
+      }
+      const numberSqrt1 = sqrt(3);
+      const numberSqrt2 = sqrt(4);
+      const sumSqrt = (num1, num2) => num1 + num2;
+      console.log(sumSqrt(numberSqrt1, numberSqrt2));
+
+      function minNumber(a, b) {
+        return a < b ? `${a} меньше чем ${b}` : `${b} меньше чем ${a}`;
+      }
+      console.log(minNumber(10, 7));
+
+      function week(numberWeek) {
+        if (numberWeek === 1) {
+          return "понедельник";
+        } else if (numberWeek === 2) {
+          return "вторник";
+        } else if (numberWeek === 3) {
+          return "среда";
+        } else if (numberWeek === 4) {
+          return "четверг";
+        } else if (numberWeek === 5) {
+          return "пятница";
+        } else if (numberWeek === 6) {
+          return "суббота";
+        } else if (numberWeek === 7) {
+          return "воскресенье";
+        } else {
+          return "введи от 1 до 7";
+        }
+      }
+      console.log(week(19));
+      const myDate = new Date();
+
+      function helloTimer(name, nextTime) {
+        if (nextTime >= 6 && nextTime <= 11) {
+          return `Доброе утро ${name}!`;
+        } else if (nextTime >= 12 && nextTime <= 17) {
+          return `Добрый день ${name}!`;
+        } else if (nextTime >= 18 && nextTime <= 23) {
+          return `Добрый вечер ${name}!`;
+        } else if (nextTime >= 24 && nextTime <= 5) {
+          return `Доброй ночи ${name}!`;
+        }
+      }
+      console.log(helloTimer("Сергей", myDate.getHours()));
+
+      function secret(quastion, answer) {
+        let userAnswer = prompt(quastion);
+        let condition = true;
+        while (condition) {
+          if (answer !== userAnswer) {
+            alert("связано с праздником");
+            userAnswer = prompt(quastion);
+          } else {
+            return "Молодец!";
+            condition = false;
+          }
+        }
+      }
+      alert(secret("зимой и летом одним цветом", "елка"));
+    </script>
+  </body>
+</html>
