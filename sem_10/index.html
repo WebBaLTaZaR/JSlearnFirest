@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      //   const week = {
+      //     [1]: "понедельник",
+      //     [2]: "вторник",
+      //     [3]: "среда",
+      //     [4]: "четверг",
+      //     [5]: "пятница",
+      //     [6]: "суббота",
+      //     [7]: "воскресенье",
+      //   };
+      //   console.log(week[2]);
+
+      const user = {
+        name: "Сергей",
+        surname: "Грицаев",
+        age: 26,
+      };
+      console.log(`${user.surname}-${user.name}-${user.age}`);
+      user.patronymic = "Петрович";
+      console.log(user);
+      delete user.surname;
+      console.log(user);
+      const week = {};
+      const arr1 = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+      const arr2 = [1, 2, 3, 4, 5, 6, 7];
+      for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr1.length; j++) {
+          week[arr1[j]] = arr2[j];
+        }
+      }
+      console.log(week);
+
+      //   const obj = { x: 1, y: 2, z: 3 };
+      //   const values = Object.values(obj);
+      //   for (const value of values) {
+      //     console.log(value ** 2);
+      //   }
+
+      const obj = {
+        key1: {
+          key1: 1,
+          key2: 2,
+          key3: 3,
+        },
+        key2: {
+          key1: 4,
+          key2: 5,
+          key3: 6,
+        },
+        key3: {
+          key1: 7,
+          key2: 8,
+          key3: 9,
+        },
+      };
+      let sum = 0;
+      const values = [];
+      for (const outerKey in obj) {
+        if (obj.hasOwnProperty(outerKey)) {
+          const interObj = obj[outerKey];
+          for (const interKey in interObj) {
+            if (interObj.hasOwnProperty(interKey)) {
+              sum += interObj[interKey];
+            }
+          }
+        }
+      }
+      console.log(sum);
+
+      const riddles = {
+        question: "зимой и летом, пидора ответ",
+        answer: "нет",
+        askQuestion() {
+          let userAnswer = prompt(this.question).toLowerCase();
+          let condition = true;
+          while (condition) {
+            if (this.answer !== userAnswer) {
+              alert("Никаких подсказок! Думай дальше!");
+              userAnswer = prompt(this.quastion).toLowerCase();
+            } else {
+              alert("Молодец!");
+              condition = false;
+            }
+          }
+        },
+      };
+      riddles.askQuestion();
+    </script>
+  </body>
+</html>
