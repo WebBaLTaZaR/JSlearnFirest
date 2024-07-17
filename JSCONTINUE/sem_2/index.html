@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="block">
+      <p>1</p>
+      <p>2</p>
+    </div>
+    <p class="www">text 1</p>
+    <p class="www">text 2</p>
+    <a class="link" href="#">link text html</a>
+    <img class="photo" src="" alt="" />
+    <div class="content"></div>
+    <script>
+      "use strict";
+      const p = document.querySelector("p");
+      console.log(p.innerHTML);
+
+      const www = document.querySelector(".www");
+      console.log(www.innerHTML);
+
+      let link = document.querySelector(".link");
+      link.innerText = "link text js";
+      console.log(link.innerHTML);
+      link.setAttribute("href", "https://developer.mozilla.org/ru/ ");
+      console.log(link.getAttribute("href"));
+
+      let photo = document.querySelector(".photo");
+      photo.setAttribute(
+        "src",
+        "https://i.ytimg.com/vi/VnLZN43xlNg/hq720_2.jpg?sqp=-oaymwEYCJYFENAFSFryq4qpAwoIARUAAIhC0AEB&amp;rs=AOn4CLBy8Z6OkOfcxruL4wl_Skx84y0bJw"
+      );
+
+      const contentEL = document.querySelector(".content");
+      contentEL.insertAdjacentHTML(
+        "beforeend",
+        "<p>Новый текстовый элемент</p>"
+      );
+      let lastElemP = contentEL.lastElementChild;
+      contentEL.removeChild(lastElemP);
+
+      contentEL.insertAdjacentHTML(
+        "beforeend",
+        "<button class ='button'>кноп очка</button>"
+      );
+      const buttonEL = document.querySelector(".button");
+      let count = 0;
+      buttonEL.addEventListener("click", function () {
+        console.log((count += 1));
+      });
+      contentEL.insertAdjacentHTML(
+        "beforeend",
+        "<button class = 'newButton'>отправить</button>"
+      );
+      const newButton = document.querySelector(".newButton");
+      newButton.addEventListener("click", function () {
+        newButton.innerText = "Текст отправлен";
+      });
+    </script>
+  </body>
+</html>
