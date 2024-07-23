@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="block"></div>
+    <!-- ============================================================================================== -->
+    <div class="elem">
+      <img src="#" alt="photo" />
+      <div class="content">
+        <h2 class="heading">Lorem, ipsum dolor.</h2>
+        <p class="text">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae,
+          ea!
+        </p>
+      </div>
+    </div>
+    <!-- ================================================================================================== -->
+    <div class="item">
+      <div class="elem">
+        <div class="info">
+          <h2 class="subtitle">Lorem, ipsum dolor.</h2>
+        </div>
+      </div>
+    </div>
+    <!-- ================================================================================================ -->
+    <form action="#">
+      <input type="text" />
+      <button class="btn">Отправить</button>
+    </form>
+    <!-- ================================================================================================ -->
+    <script>
+      "use strict";
+      const block = document.querySelector(".block");
+      block.insertAdjacentHTML(
+        "beforeend",
+        '<div class = "item" >Элемент внутри</div>'
+      );
+      const item = document.querySelector(".item");
+      item.style.color = "blue";
+      item.style.border = "1px solid black";
+      item.style.backgroundColor = "#f8f8f8";
+      item.style.padding = "16px";
+      item.setAttribute("class", "item_1");
+      //   ==============================================================================
+      const pText = document.querySelector(".text");
+      console.log(pText.previousElementSibling);
+      console.log(pText.parentElement);
+      const contentEL = pText.parentElement;
+      console.log(contentEL.previousElementSibling);
+      console.log(contentEL.parentElement);
+      //   ==============================================================================
+      const subtitleEL = document.querySelector(".subtitle");
+      const infoEl = subtitleEL.parentElement;
+      console.log(infoEl);
+      const elemEl = infoEl.parentElement;
+      console.log(elemEl);
+      const itemEl = elemEl.parentElement;
+      console.log(itemEl);
+      //   ==============================================================================
+      let intputType = document.querySelector("input");
+      const btn = document.querySelector(".btn");
+      btn.addEventListener("click", function () {
+        if (intputType.innerText === "") {
+          btn.parentElement.insertAdjacentHTML(
+            "beforeend",
+            "<h2>вы не заполнили поле ввода</h2>"
+          );
+          intputType.style.border = "1px solid red";
+        }
+      });
+      //   =============================================================================
+      contentEL.insertAdjacentHTML("beforeend", "<button>Отправить</button>");
+	  const button = document.querySelector('button');
+	  button.addEventListener('click', function(){
+		button.innerText = 'Текст отправлен';
+	  })
+    </script>
+  </body>
+</html>
