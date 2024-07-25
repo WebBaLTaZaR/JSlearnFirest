@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn_def">кнопка</button>
+    <button class="btn_press">кнопка 1</button>
+    <button class="btn_press">кнопка 2</button>
+    <button class="btn_press">кнопка 3</button>
+    <button class="btn_count">кнопка 4</button>
+    <button class="btn_edit">кнопка 5</button>
+    <button class="btn_create_h1">кнопка создающая текст</button>
+    <button class="btn_remove_h1">кнопка удаляющая текст</button>
+    <button class="btn_hover">Наведи на меня мышь</button>
+    <ul class="ul_like">
+      <li class="like">произвольное название</li>
+      <li class="like">произвольное название</li>
+      <li class="like">произвольное название</li>
+    </ul>
+    <button class="btn_append">добавить элемент</button>
+    <button class="btn_remove_li">удалить первый элемент</button>
+    <script>
+      "use strict";
+      window.addEventListener("load", () => {
+        console.log("Страница загрузилась");
+      });
+      const buttonDef = document.querySelector(".btn_def");
+      buttonDef.onclick = (event) => {
+        console.log("событие onclick");
+      };
+      buttonDef.addEventListener("click", () => {
+        console.log("событие addEventListener");
+        buttonDef.classList.add('click')
+      });
+      const buttonPress = document.querySelectorAll(".btn_press");
+      console.log(buttonPress);
+      buttonPress.forEach((element) => {
+        element.addEventListener("click", () => {
+          console.log(element);
+        });
+      });
+
+      const btnCount = document.querySelector(".btn_count");
+      let countBtn = 0;
+      btnCount.addEventListener("click", () => {
+        console.log((countBtn += 1));
+      });
+      let btnEdit = document.querySelector(".btn_edit");
+      btnEdit.addEventListener("click", () => {
+        btnEdit.innerText = "Вы нажали на эту кнопку";
+      });
+      const btnCreate = document.querySelector(".btn_create_h1");
+      btnCreate.addEventListener("click", () => {
+        btnCreate.insertAdjacentHTML(
+          "afterend",
+          `<h1 class = 'main_h1'>Новый заголовок</h1>`
+        );
+      });
+
+      const btnRemove = document.querySelector(".btn_remove_h1");
+      btnRemove.addEventListener("click", () => {
+        const mainH1 = document.querySelector(".main_h1");
+        if (mainH1) {
+          mainH1.remove();
+        } else {
+          console.error("mainH1 не найден");
+        }
+      });
+      const btnHover = document.querySelector(".btn_hover");
+      btnHover.addEventListener("mouseover", () => {
+        console.log("Вы навели на данную кнопку");
+      });
+      btnHover.addEventListener("mouseout", () => {
+        console.log("Наведения на кнопку больше нет");
+      });
+      const ulLike = document.querySelector(".ul_like");
+      const btnAppend = document.querySelector(".btn_append");
+      btnAppend.addEventListener("click", () => {
+        ulLike.insertAdjacentHTML(
+          "beforeend",
+          '<li class = "liAppend">Новый элемент списка</li>'
+        );
+      });
+      const btnRemoveLi = document.querySelector(".btn_remove_li");
+
+      btnRemoveLi.addEventListener("click", () => {
+        const firstChildLi = ulLike.firstElementChild;
+        if (firstChildLi) {
+          ulLike.removeChild(firstChildLi);
+        } else {
+          console.log("элементы кончились");
+        }
+      });
+      
+    </script>
+  </body>
+</html>
