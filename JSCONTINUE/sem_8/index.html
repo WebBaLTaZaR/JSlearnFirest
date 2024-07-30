@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="checkbox" />
+    <p class="status"></p>
+    <p>Согласен с условиями</p>
+    <button class="btn-cheсk">отравить</button>
+    <!-- ========================================================= -->
+    <input type="radio" value="tea" name="drink" />Чай
+    <input type="radio" value="coffe" name="drink" />Кофе
+    <button class="btn_drink">отправить</button>
+    <p class="text_massage"></p>
+    <!-- ========================================================= -->
+    <input type="password" placeholder="Введите пароль" />
+    <p class="status_password"></p>
+    <button class="btn_pass">Проверить пароль</button>
+    <!-- ========================================================= -->
+    <textarea name="group" id="textarea"></textarea>
+    <h1>Заголовок</h1>
+    <script>
+      "use strict";
+      const btnCheсk = document.querySelector(".btn-cheсk");
+      const status = document.querySelector(".status");
+      const chekBox = document.querySelector('input[type="checkbox"]');
+      btnCheсk.addEventListener("click", () => {
+        if (!chekBox.checked) {
+          status.innerText = "Необходимо согласиться с условиями";
+        } else {
+          status.innerText = "Форма отправлена!";
+        }
+      });
+      //   =====================================================================
+      const tea = document.querySelector(`input[value='tea']`);
+      const coffe = document.querySelector(`input[value='coffe']`);
+      const btnDrink = document.querySelector(".btn_drink");
+      const textMassage = document.querySelector(".text_massage");
+      btnDrink.addEventListener("click", () => {
+        if (tea.checked) {
+          textMassage.innerText = "Чай закончился, сорян!";
+        } else if (coffe.checked) {
+          textMassage.innerText = "Коффе закончилось, сурен!";
+        } else {
+          textMassage.innerText = "Вибирайте напиток!";
+        }
+      });
+      // ==========================================================================
+
+      const btnPass = document.querySelector(".btn_pass");
+      const statusPass = document.querySelector(".status_password");
+
+      btnPass.addEventListener("click", () => {
+        const password = document.querySelector('input[type="password"]');
+        if (password.value === "пароль") {
+          password.style.border = "green 2px solid";
+        } else {
+          password.style.border = "red 2px solid";
+        }
+      });
+      //   =========================================================================
+      const textarea = document.getElementById("textarea");
+      const h1 = document.querySelector("h1");
+      textarea.addEventListener("input", () => {
+        h1.innerText = textarea.value;
+      });
+    </script>
+  </body>
+</html>
