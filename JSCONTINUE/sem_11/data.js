@@ -5,7 +5,7 @@ const dataProducts = {
 			"discription": "MANGO  PEOPLE  T-SHIRT",
 			"url": "/JSlearnFirest/JSCONTINUE/sem_11/img/MANGO.jpg",
 			"price": 300,
-			"color": "red",
+			"color": "Red",
 			"size": "XI",
 			"quantity": 2
 		},
@@ -14,7 +14,7 @@ const dataProducts = {
 			"discription": "ELLERY X M'O CAPSULE",
 			"url": "/JSlearnFirest/JSCONTINUE/sem_11/img/ELLERY.jpg",
 			"price": 52,
-			"color": "red",
+			"color": "Black",
 			"size": "XI",
 			"quantity": 1
 		},
