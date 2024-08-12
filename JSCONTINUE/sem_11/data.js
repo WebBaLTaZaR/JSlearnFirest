@@ -3,7 +3,7 @@ const dataProducts = {
 		{
 			"id": 1,
 			"discription": "MANGO  PEOPLE  T-SHIRT",
-			"url": "/JSlearnFirest/JSCONTINUE/sem_11/img/MANGO.jpg",
+			"url": "img/MANGO.jpg",
 			"price": 300,
 			"color": "Red",
 			"size": "XI",
@@ -12,7 +12,7 @@ const dataProducts = {
 		{
 			"id": 2,
 			"discription": "ELLERY X M'O CAPSULE",
-			"url": "/JSlearnFirest/JSCONTINUE/sem_11/img/ELLERY.jpg",
+			"url": "img/ELLERY.jpg",
 			"price": 52,
 			"color": "Black",
 			"size": "XI",
