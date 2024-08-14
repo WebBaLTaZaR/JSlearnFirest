@@ -1,0 +1,27 @@
+.videoContainer {
+	position: relative;
+	margin: auto;
+	width: 640px;
+}
+.videoContent {
+	width: 100%;
+	display: block;
+}
+.controls {
+	display: flex;
+	justify-content: space-around;
+}
+.playPause {
+	background: #55555500;
+	border: none;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	width: 75px;
+	height: 75px;
+}
+#progressBar {
+	width: 500px;
+}
+#volumeControl {
+}

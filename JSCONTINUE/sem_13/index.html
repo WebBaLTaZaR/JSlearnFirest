@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="videoContainer">
+      <video class="videoContent" src="media/video.mp4"></video>
+      <div class="controls">
+        <button class="playPause"><img src="img/play.svg" alt="play" /></button>
+        <input type="range" id="progressBar" value="0" max="100" />
+        <input
+          type="range"
+          id="volumeControl"
+          min="0"
+          max="1"
+          step="0.1"
+          value="1"
+        />
+      </div>
+    </div>
+
+    <script>
+      "use strict";
+      const video = document.querySelector(".videoContent");
+      const playPause = document.querySelector(".playPause");
+      const progressBar = document.getElementById("progressBar");
+      const volumeControl = document.getElementById("volumeControl");
+
+      playPause.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+          playPause.firstChild.setAttribute("src", "img/pause.svg");
+        } else {
+          video.pause();
+          playPause.firstChild.setAttribute("src", "img/play.svg");
+        }
+      });
+      video.addEventListener("timeupdate", () => {
+        progressBar.value = (video.currentTime / video.duration) * 100;
+      });
+      progressBar.addEventListener("input", () => {
+        const seekTime = (progressBar.value / 100) * video.duration;
+        video.currentTime = seekTime;
+      });
+	  volumeControl.addEventListener('input', ()=>{
+		video.volume = volumeControl.value;
+	  })
+
+    </script>
+  </body>
+</html>
